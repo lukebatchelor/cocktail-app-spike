@@ -7,7 +7,7 @@ const initialiseData = require('./initial-data');
 
 const { KnexAdapter: Adapter } = require('@keystonejs/adapter-knex');
 const PROJECT_NAME = 'cocktail-app-spike';
-const adapterConfig = { knexOptions: { connection: 'postgres://localhost/cocktail_app_spike' } };
+const adapterConfig = { knexOptions: { connection: 'postgres://keystone5:change_me_plz@localhost/cocktail_app_spike' } };
 
 
 const keystone = new Keystone({
@@ -38,6 +38,8 @@ const access = { userIsAdmin, userOwnsItem, userIsAdminOrOwner };
 keystone.createList('User', {
   fields: {
     name: { type: Text },
+    nickname: { type: Text },
+    nickname2: { type: Text },
     email: {
       type: Text,
       isUnique: true,
