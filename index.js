@@ -5,9 +5,9 @@ const { GraphQLApp } = require('@keystonejs/app-graphql');
 const { AdminUIApp } = require('@keystonejs/app-admin-ui');
 const initialiseData = require('./initial-data');
 
-const { PrismaAdapter: Adapter } = require('@keystonejs/adapter-prisma');
+const { KnexAdapter: Adapter } = require('@keystonejs/adapter-knex');
 const PROJECT_NAME = 'cocktail-app-spike';
-const adapterConfig = { url: 'postgres://keystone5:change_me_plz@localhost:5432/keystone' };
+const adapterConfig = { knexOptions: { connection: 'postgres://localhost/cocktail_app_spike' } };
 
 
 const keystone = new Keystone({

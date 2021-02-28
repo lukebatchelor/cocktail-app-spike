@@ -17,7 +17,7 @@
     "create-tables": "cross-env CREATE_TABLES=true keystone create-tables"
   },
   "dependencies": {
-    "@keystonejs/adapter-prisma": "^3.2.0",
+    "@keystonejs/adapter-knex": "^13.2.0",
     "@keystonejs/app-admin-ui": "^7.4.0",
     "@keystonejs/app-graphql": "^6.2.0",
     "@keystonejs/auth-password": "^6.0.1",
