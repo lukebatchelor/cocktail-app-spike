@@ -8,6 +8,7 @@ import { KnexAdapter as Adapter } from '@keystonejs/adapter-knex';
 
 import User from './lists/User';
 import Ingredient from './lists/Ingredient';
+import Recipe from './lists/Recipe';
 
 const PROJECT_NAME = 'Cocktail App Spike';
 const adapterConfig = {
@@ -24,6 +25,7 @@ const keystone = new Keystone({
 
 keystone.createList('User', User);
 keystone.createList('Ingredient', Ingredient);
+keystone.createList('Recipe', Recipe);
 
 const authStrategy = keystone.createAuthStrategy({
   type: PasswordAuthStrategy,
