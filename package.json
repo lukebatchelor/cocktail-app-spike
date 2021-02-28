@@ -11,10 +11,13 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development DISABLE_LOGGING=true keystone dev",
+    "dev": "cross-env NODE_ENV=development DISABLE_LOGGING=true ts-node --transpile-only ./node_modules/.bin/keystone dev --entry=index.ts",
     "build": "cross-env NODE_ENV=production keystone build",
     "start": "cross-env NODE_ENV=production keystone start",
-    "create-tables": "cross-env CREATE_TABLES=true keystone create-tables"
+    "create-tables": "cross-env CREATE_TABLES=true keystone create-tables",
+    "migration:make": "knex --knexfile knexfile.ts migrate:make -x ts",
+    "migration:list": "knex migrate:list",
+    "migration:latest": "knex migrate:latest"
   },
   "dependencies": {
     "@keystonejs/adapter-knex": "^13.2.0",
@@ -23,7 +26,8 @@
     "@keystonejs/auth-password": "^6.0.1",
     "@keystonejs/fields": "^22.0.0",
     "@keystonejs/keystone": "^19.2.0",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "ts-node": "^9.1.1",

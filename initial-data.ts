@@ -1,7 +1,7 @@
-const crypto = require('crypto');
-const randomString = () => crypto.randomBytes(6).hexSlice();
+import crypto from 'crypto';
+const randomString = () => crypto.randomBytes(6).toString('hex');
 
-module.exports = async keystone => {
+export default async keystone => {
   // Count existing users
   const {
     data: {
